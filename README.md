@@ -37,9 +37,4 @@ It combines document embeddings, vector search, and Large Language Models (LLMs)
 
 ---
 
-## 📦 Installation
 
-1. Clone the repository:
-```bash
-git clone <your-repo-link>
-cd <repo-folder>
