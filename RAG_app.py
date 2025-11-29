@@ -462,7 +462,7 @@ def create_retriever(
 
     Parameters:
         vector_store: Chroma vector database.
-        embeddings: OpenAIEmbeddings or GoogleGenerativeAIEmbeddings.
+        embeddings: OpenAIEmbeddings and GoogleGenerativeAIEmbeddings.
 
         retriever_type (str): in [Vectorstore backed retriever,Contextual compression,Cohere reranker]. default = Cohere reranker
 
@@ -731,8 +731,8 @@ def create_memory(model_name="gpt-3.5-turbo", memory_max_token=None):
         memory = ConversationSummaryBufferMemory(
             max_token_limit=memory_max_token,
             llm=ChatOpenAI(
-                model_name="gpt-3.5-turbo",
                 openai_api_key=st.session_state.openai_api_key,
+                 model_name="gpt-3.5-turbo"
                 temperature=0.1,
             ),
             return_messages=True,
@@ -744,8 +744,8 @@ def create_memory(model_name="gpt-3.5-turbo", memory_max_token=None):
         memory = ConversationBufferMemory(
             return_messages=True,
             memory_key="chat_history",
-            output_key="answer",
             input_key="question",
+            output_key="answer",
         )
     return memory
 
